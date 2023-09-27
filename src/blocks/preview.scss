@@ -1,0 +1,9 @@
+.preview{
+    &__images-container{
+        display: flex;
+    }
+    &__image{
+        width: 50%;
+        height: 600px;
+    }
+}

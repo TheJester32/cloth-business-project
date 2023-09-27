@@ -1,0 +1,19 @@
+.nav{
+    font-weight: 700;
+    background-color: #5e87c4;
+    color: #fff;
+    a{
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
+    }
+    a:hover {
+        color: rgb(17, 0, 255);
+    }
+    &__list{
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+    }
+}
