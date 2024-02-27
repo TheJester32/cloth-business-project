@@ -1,0 +1,23 @@
+.catalog {
+
+    &__option{
+        list-style-type: none;
+    }
+
+    &__option-title{
+        background-color: bisque;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        padding-left: 10px;
+        @media (min-width: $tablet) {
+            width: 150px;
+        }
+    }
+    &__options-list {
+        padding-left: 0;
+        @media (min-width: $tablet) {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}
