@@ -8,12 +8,18 @@
         cursor: pointer;
     }
     a:hover {
-        color: rgb(17, 0, 255);
+        color: rgb(179, 6, 35);
     }
     &__list{
-        padding: 0;
         list-style-type: none;
         display: flex;
         justify-content: space-around;
+        padding: 0;
+        flex-direction: column;
+        text-align: center;
+        @media (min-width: $tablet) {
+            flex-direction: row;
+            font-size: 20px;
+        }
     }
 }

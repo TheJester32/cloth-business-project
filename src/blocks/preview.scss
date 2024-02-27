@@ -1,9 +1,18 @@
 .preview{
     &__images-container{
         display: flex;
+        flex-direction: column;
+        @media (min-width: $tablet) {
+            flex-direction: row;
+        }
     }
     &__image{
+        @media (min-width: $tablet) {
         width: 50%;
-        height: 600px;
+        height: 400px;
+        }
+        @media (min-width: $desktop) {
+            height: 600px;
+            }
     }
 }

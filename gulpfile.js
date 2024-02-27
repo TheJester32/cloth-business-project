@@ -37,16 +37,18 @@ gulp.task('fonts', function () {
         .pipe(browserSync.reload({ stream: true }))
 });
 
-gulp.task('start', function (done) {
-    browserSync.init({
-        server: ["./", "./src", "./src/blocks"]
-    });
-    gulp.watch('src/**/*.scss', gulp.series('sass')).on('change', browserSync.reload);
-    gulp.watch('./*.html').on('change', browserSync.reload);
-    done();
-});
 
 gulp.task('build', gulp.parallel('sass', 'html', 'img', 'fonts', function (done) {
+    gulp.watch('src/**/*.scss', gulp.series('sass'));
+    gulp.watch('*.html', gulp.series('html'));
+    gulp.watch('*.woff2', gulp.series('fonts'));
+    done();
+}));
+
+gulp.task('start', gulp.parallel('sass', 'html', 'img', 'fonts', function (done) {
+    browserSync.init({
+        server: "build"
+    })
     gulp.watch('src/**/*.scss', gulp.series('sass'));
     gulp.watch('*.html', gulp.series('html'));
     gulp.watch('*.woff2', gulp.series('fonts'));
