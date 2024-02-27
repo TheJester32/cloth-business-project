@@ -19,7 +19,8 @@
     "start": "gulp start",
     "sass": "gulp sass",
     "html": "gulp html",
-    "img": "gulp img"
+    "img": "gulp img",
+    "build": "gulp build"
   },
   "author": "",
   "license": "ISC",

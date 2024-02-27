@@ -31,11 +31,24 @@ gulp.task('img', function () {
         .pipe(browserSync.reload({ stream: true }))
 });
 
-gulp.task('start', gulp.parallel('sass', 'html', 'img', function (done) {
+gulp.task('fonts', function () {
+    return gulp.src('fonts/*.woff2')
+        .pipe(gulp.dest('build/fonts'))
+        .pipe(browserSync.reload({ stream: true }))
+});
+
+gulp.task('start', function (done) {
     browserSync.init({
-        server: "build"
+        server: ["./", "./src", "./src/blocks"]
     });
+    gulp.watch('src/**/*.scss', gulp.series('sass')).on('change', browserSync.reload);
+    gulp.watch('./*.html').on('change', browserSync.reload);
+    done();
+});
+
+gulp.task('build', gulp.parallel('sass', 'html', 'img', 'fonts', function (done) {
     gulp.watch('src/**/*.scss', gulp.series('sass'));
     gulp.watch('*.html', gulp.series('html'));
+    gulp.watch('*.woff2', gulp.series('fonts'));
     done();
 }));
